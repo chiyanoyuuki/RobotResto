@@ -1,16 +1,23 @@
 body{
     background-color:#404040;
+    margin:5%;
 }
 *{
     color: #cccccc;
+    font-size:20px;
 }
 p{
     margin:0;
+    margin-top: auto;
+  margin-bottom: auto;
 }
-button{
+button, input{
+    margin:10px;
     background-color:#202020;
+    padding: 10px;
+    border-radius: 15px;
 }
-button:hover{
+button:hover, input:hover{
     cursor:pointer;
     opacity:0.5;
 }

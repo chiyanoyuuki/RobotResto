@@ -1,18 +1,31 @@
 <div>
   <div *ngIf="!good">
     <div style="display:flex;">
-      <p>Fichier EVP : </p>
+      <p>(.xslx) Fichier EVP : </p>
       <input type="file" class="upload" (change)="changeListener($event)">
+      <p>(ex : Fichier mensuel paie novembre 2023.xlsx)</p>
     </div>
     <div style="display:flex;">
-      <p>Fichier LUCCA : </p>
+      <p>(.csv) Fichier LUCCA : </p>
       <input type="file" class="upload" (change)="changeListener2($event)">
+      <p>(ex : Timmi Absences_Rapport_2023.csv)</p>
     </div>
     <div *ngIf="doc1.length>0&&doc2.length>0">
       <button (click)="write()">Valider</button>
     </div>
   </div>
   
+  <div *ngIf="good">
+    <p>Total : {{(carte.length+tickets.length)}} personnes traités</p>
+    <hr/>
+    <p>Cartes TR : {{carte.length}}</p>
+    <p>Tickets : {{tickets.length}}</p>
+    <hr/>
+    <p>Non traités : {{logs.length}}</p>
+    <br/>
+    <p *ngFor="let log of logs">- {{log.departement}} - {{log.nom}} {{log.prenom}}</p>
+    <hr/>
+  </div>
   <div *ngIf="good" style="display:flex">
     <button (click)="downloadCSVCarte()">Fichier Cartes</button>
     <button (click)="downloadCSVTickets()">Fichier Tickets</button>
